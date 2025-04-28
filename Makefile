@@ -1,8 +1,13 @@
-.PHONY: install
-		install: npm ci
+.PHONY: brain-games publish install
 
-make brain-games:
-        node bin/brain-games.js
+brain-games-alternative:
+	./bin/brain-games.js
+
+brain-games-original:
+	bin/brain-games.js
 
 publish:
-    npm publish --dry-run
+	npm publish --dry-run
+
+install:
+	npm link
