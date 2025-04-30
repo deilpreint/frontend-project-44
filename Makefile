@@ -11,3 +11,6 @@ publish:
 
 install:
 	npm link
+
+lint: 
+	npm run lint
