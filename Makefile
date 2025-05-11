@@ -1,16 +1,30 @@
-.PHONY: brain-games publish install
+.PHONY: install brain-games publish link lint brain-even brain-calc
 
-brain-games-alternative:
-	./bin/brain-games.js
+# Установка зависимостей и настройка прав
+install:
+	npm ci
+	chmod +x bin/brain-games.js bin/brain-even.js bin/brain-gcd.js
 
-brain-games-original:
-	bin/brain-games.js
+# Запуск игр
+brain-games:
+	node bin/brain-games.js
 
+brain-even:
+	node bin/brain-even.js
+
+brain-calc:
+	node bin/brain-calc.js
+
+brain-gcd:
+	node bin/brain-gcd.js
+
+# Публикация и линкинг
 publish:
 	npm publish --dry-run
 
-install:
+link:
 	npm link
 
-lint: 
-	npm run lint
+# Линтинг
+lint:
+	npx eslint --fix .
