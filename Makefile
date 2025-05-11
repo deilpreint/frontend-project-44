@@ -3,7 +3,6 @@
 # Установка зависимостей и настройка прав
 install:
 	npm ci
-	chmod +x bin/brain-games.js bin/brain-even.js bin/brain-gcd.js
 
 # Запуск игр
 brain-games:
