@@ -1,4 +1,4 @@
-.PHONY: install brain-games publish link lint brain-even brain-calc
+.PHONY: install brain-games publish link lint brain-even 
 
 # Установка зависимостей и настройка прав
 install:
@@ -11,12 +11,6 @@ brain-games:
 
 brain-even:
 	node bin/brain-even.js
-
-brain-calc:
-	node bin/brain-calc.js
-
-brain-gcd:
-	node bin/brain-gcd.js
 
 # Публикация и линкинг
 publish:
