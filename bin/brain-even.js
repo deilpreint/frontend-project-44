@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync'
-import welcomeUser from '../src/cli.js'
+import greetUser from '../src/cli.js'
 
 const isCheckingNumber = (num, answer) => {
   if (num % 2 === 0 && answer === 'yes') {
