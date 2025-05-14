@@ -1,43 +1,39 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync'
-import greetUser from '../src/cli.js'
+import readlineSync from 'readline-sync';
+import greetUser from "../src/cli.js";
 
-const isCheckingNumber = (num, answer) => {
-  if (num % 2 === 0 && answer === 'yes') {
-    return true
-  }
-  else if (num % 2 === 1 && answer === 'no') {
-    return true
-  }
 
-  return false
-}
+const getRandomNumber = () => Math.floor(Math.random() * 100) + 1;
 
-console.log('Welcome to the Brain Games!')
+const isEven = (num) => num % 2 === 0;
 
-const name = welcomeUser()
+const runGame = () => {
+    console.log('Welcome to the Brain Games!');
+    const name = readlineSync.question('May I have your name? ');
+    console.log(`Hello, ${name}!`);
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-console.log(`Hello, ${name}!`)
+    const roundsCount = 3;
 
-console.log(`Answer "yes" if the number is even, otherwise answer "no".`)
+    for (let i = 0; i < roundsCount; i += 1) {
+        const number = getRandomNumber();
+        console.log(`Question: ${number}`);
+        const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
 
-let count = 0
+        const correctAnswer = isEven(number) ? 'yes' : 'no';
 
-for (let i = 0; i < 3; i = i + 1) {
-  const num = Math.floor(Math.random() * 101)
-  console.log(`Question: ${num}`)
-  const answer = readlineSync.question('Your answer: ')
+        if (userAnswer === correctAnswer) {
+            console.log('Correct!');
+        } else {
+            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+            console.log(`Let's try again, ${name}!`);
+            return;
+        }
+    }
 
-  if (isCheckingNumber(num, answer)) {
-    console.log('Currect!')
-    count = count + 1
-  }
-  else {
-    console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.`, `Let's try again, ${name}!`)
-    break
-  }
-}
-
-if (count === 3) {
-  console.log(`Congratulations, ${name}!`)
+    console.log(`Congratulations, ${name}!`);
 };
+
+export default runGame;
+
+runGame();
