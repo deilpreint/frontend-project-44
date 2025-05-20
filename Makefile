@@ -17,8 +17,11 @@ brain-calc:
 brain-gcd:
 	node bin/brain-gcd.js
 
-brain-progresiion:
+brain-progression:
 	node  bin/brain-progression.js
+
+brain-prime:
+	node bin/brain-prime.js
 
 # Публикация и линкинг
 publish:
