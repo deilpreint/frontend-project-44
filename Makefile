@@ -14,6 +14,12 @@ brain-even:
 brain-calc:
 	node bin/brain-calc.js
 
+brain-gcd:
+	node bin/brain-gcd.js
+
+brain-progresiion:
+	node  bin/brain-progression.js
+
 # Публикация и линкинг
 publish:
 	npm publish --dry-run
