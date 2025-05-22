@@ -9,10 +9,10 @@ export const generateRound = () => {
   const start = getRandomNumber(1, 50)
   const step = getRandomNumber(1, 10)
   const hiddenIndex = getRandomNumber(0, length - 1)
-  
+
   const progression = generateProgression(start, step, length)
   const answer = String(progression[hiddenIndex])
-  
+
   progression[hiddenIndex] = '..'
   const question = progression.join(' ')
 
